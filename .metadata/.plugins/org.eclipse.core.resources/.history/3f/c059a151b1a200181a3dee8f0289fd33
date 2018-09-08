@@ -1,0 +1,12 @@
+import java.util.stream.Stream;
+
+public class StringStream {
+
+	public static void main(String[] args) {
+		String str = "Sandeep Raj"
+		Stream stream = (Stream) str.chars();
+		stream.map(String::toUpperCase)
+
+	}
+
+}

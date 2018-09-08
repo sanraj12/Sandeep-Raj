@@ -1,0 +1,16 @@
+
+public class RecurrsionMethod {
+public static void main(String[] args) {
+	
+}
+
+
+int recurssivesum(int n) {
+if(n==1)
+{
+	System.out.println("do nothing");
+	}
+else {
+	int sum =n+recurssivesum(n-1);
+}
+return sum ;}}

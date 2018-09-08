@@ -1,0 +1,12 @@
+import java.util.ArrayList;
+
+public class SameAnotationTwiceAndNotNullExample {
+	public static void main(String[] args)
+	{
+// 	@Test(1,true);
+//	@Test(2,false);
+	
+	private @NonNull List<Person> list= new ArrayList<>();
+	}
+
+}

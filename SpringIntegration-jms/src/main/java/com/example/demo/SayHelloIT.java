@@ -1,0 +1,48 @@
+package com.example.demo;
+
+import javax.jms.ConnectionFactory;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.SpringApplicationContextLoader;
+
+import spock.lang.Specification;
+
+/**
+ * Created by jt on 8/18/15.
+ */
+@ContextConfiguration(loader = SpringApplicationContextLoader.class, classes = [HelloWorldSiActivemqApplication])
+class SayHelloServiceJmsIT extends Specification{
+ 
+    @Autowired
+    @Qualifier("jmsConnectionFactory")
+    ConnectionFactory jmsConnectionFactory
+ 
+    String queueName = ActiveMQConfig.HELLO_QUEUE
+    Session session
+    Destination destination
+    MessageProducer producer
+ 
+    def setup(){
+        Connection conn = jmsConnectionFactory.createConnection()
+        conn.start()
+        session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE)
+        destination = session.createQueue(queueName)
+        this.producer = session.createProducer(destination)
+        this.producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT)
+    }
+ 
+    def "Test Send and Receive of Message"() {
+        given:
+        TextMessage txtMessage = session.createTextMessage()
+        txtMessage.setText("Larry the Cable Guy")
+ 
+        when:
+        producer.send(destination, txtMessage)
+ 
+        sleep(3000) // wait 3 seconds
+        then:
+        true
+ 
+    }
+}

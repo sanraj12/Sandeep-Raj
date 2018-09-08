@@ -1,0 +1,23 @@
+import java.util.StringJoiner;
+import java.util.function.Function;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+public class StringStream {
+
+	public static void main(String[] args) {
+		String str = "Sandeep Raj";
+		/*Stream stream =  str.chars();
+		
+		Function<String, String> function = str1->str1.toUpperCase();
+		
+		stream.map(	).forEach(System.out::println);*/
+		
+		StringJoiner joiner = new StringJoiner("");
+		joiner.add("add").add("two").add("three");
+		
+		System.out.println(joiner);
+
+	}
+
+}

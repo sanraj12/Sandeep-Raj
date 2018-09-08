@@ -1,0 +1,12 @@
+import java.util.Arrays;
+
+public class StreamWithLambda {
+
+	public static void main(String[] args) {
+	
+		List list = Arrays.asList()
+		
+		
+	}
+
+}

@@ -1,0 +1,13 @@
+import java.awt.print.Printable;
+import java.util.stream.Stream;
+
+public class SreamOf {
+
+	public static void main(String[] args) {
+Stream<String> stream =  Stream.of("hsghdaj", "jhhhd", "huihdih", "ryfqsdj");
+stream.forEach(System.out::println );
+
+
+	}
+
+}

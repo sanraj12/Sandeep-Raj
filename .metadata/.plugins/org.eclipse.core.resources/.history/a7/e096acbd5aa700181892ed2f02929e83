@@ -1,0 +1,26 @@
+import java.util.concurrent.Semaphore;
+
+enum DownLoader{
+	
+	INSTANCE;
+	
+	private Semaphore semaphore = new Semaphore(2, true);
+	
+	public void downloadData(){
+		
+		try {
+			semaphore.acquire();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			semaphore.release();
+		}
+		
+	}
+}
+
+
+public class SemaphoreExample {
+
+}

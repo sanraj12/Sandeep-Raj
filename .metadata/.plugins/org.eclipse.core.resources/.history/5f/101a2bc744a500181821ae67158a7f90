@@ -1,0 +1,25 @@
+class ThreadSynchronization implements Runnable {
+
+	int count2 = 0;
+	int count1 = 0;
+
+	public void incrementcount1() {
+
+		for (int i = 0; i < 100; i++) {
+			count2++;
+		}
+	}
+
+	public void incrementcount2() {
+
+		for (int i = 0; i < 100; i++) {
+			count2++;
+		}
+	}
+
+	@Override
+	public void run() {
+
+	}
+
+}

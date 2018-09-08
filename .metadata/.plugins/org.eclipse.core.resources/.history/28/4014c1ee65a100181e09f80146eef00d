@@ -1,0 +1,25 @@
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamWithLambda {
+
+	public static void main(String[] args) {
+		
+		
+		
+		Person person = new Person();
+		Person person1 = new Person();
+		Person person2 = new Person();
+		person.setAge(12);
+		person2.setAge(35);
+		person1.setAge(55);
+	
+		List<Person> list = Arrays.asList(person,person1,person2);
+		
+		list.stream().filter(pers->pers.getAge()>12).map(person5->person5.getAge())
+		.forEach(System.out::println);;
+		
+		
+	}
+
+}
