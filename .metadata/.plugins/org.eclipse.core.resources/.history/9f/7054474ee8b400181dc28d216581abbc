@@ -1,0 +1,29 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+
+
+
+public class SpecialPalindrom {
+	
+	static class Point{
+		public char key;
+		public long count;
+		Point(char x,long y  )
+		{
+			key=x;
+			count=y;
+		}
+	}
+	
+	
+	static long subStringPallindrom(String str)
+	{
+		
+		
+		return 123;
+	}
+	
+}

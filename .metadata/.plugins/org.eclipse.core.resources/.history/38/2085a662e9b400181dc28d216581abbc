@@ -1,0 +1,57 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class SpecialPalindrom {
+
+	static class Point {
+		public char key;
+		public long count;
+
+		Point(char x, long y) {
+			key = x;
+			count = y;
+		}
+	}
+
+	static long subStringPallindrom(String str) {
+		int n = str.length();
+		ArrayList<Point> list = new ArrayList<>();
+
+		long count = 1;
+		char ch = str.charAt(0);
+		for (int i = 0; i < n; i++) {
+			if (ch == str.charAt(i)) {
+				count++;
+			} else {
+				list.add(new Point(ch, count));
+				count = 1;
+				ch = str.charAt(i);
+			}
+
+		}
+
+		count = 0;
+		if (list.size() >= 3) {
+			Iterator<Point> iterator = list.iterator();
+			Point prev, curr, next;
+			curr = iterator.next();
+			next = iterator.next();
+			count = (curr.count * (curr.count + 1)) / 2;
+			for (int i = 0; i < list.size() - 1; i++) {
+				prev = curr;
+				curr = next;
+				next = iterator.next();
+
+			}
+		} else {
+			for (Point curr : list) {
+
+				System.out.println();
+				count += (curr.count * (curr.count + 1)) / 2;
+			}
+		}
+
+		return 123;
+	}
+
+}
