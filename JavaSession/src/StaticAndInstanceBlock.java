@@ -26,6 +26,9 @@ public class StaticAndInstanceBlock {
 
 class Example {
 
+	{
+		System.out.println("Inside Example class Instance block");
+	}
 	public Example() {
 		System.out.println("Inside Construtor");
 	}
