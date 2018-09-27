@@ -1,0 +1,17 @@
+import java.util.concurrent.Semaphore;
+
+enum DownLoader{
+	
+	INSTANCE;
+	
+	private Semaphore semaphore = new Semaphore(2, true)
+	
+	public void download{
+		
+	}
+}
+
+
+public class SemaphoreExample {
+
+}

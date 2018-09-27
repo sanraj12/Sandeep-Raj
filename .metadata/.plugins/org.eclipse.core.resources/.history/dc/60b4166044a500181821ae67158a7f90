@@ -1,0 +1,15 @@
+ class ThreadSynchronization implements Runnable {
+
+	 int count =0;
+	 
+	 public void incrementcount1(
+			 )
+	 
+	@Override
+	public void run() {
+		
+		
+	}
+	
+
+}

@@ -1,0 +1,50 @@
+import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.BlockingQueue;
+
+class FirsstWorker implements Runnable
+{
+BlockingQueue<Integer> queue;
+int counter =1;
+	@Override
+	public void run() {
+		try {
+			queue.put(counter);
+			System.out.println("Puting Item in queue");
+			counter++;
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+	}
+
+class SecondtWorker implements Runnable
+{
+BlockingQueue<Integer> queue;
+int counter =1;
+
+public SecondtWorker(BlockingQueue<Integer> blockingQueue) {
+	queue=blockingQueue;
+}
+
+	@Override
+	public void run() {
+		try {
+			queue.take();
+			System.out.println("getting Item from queue");
+			counter++;
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+	}
+
+public class BlockingQueueexample {
+
+}

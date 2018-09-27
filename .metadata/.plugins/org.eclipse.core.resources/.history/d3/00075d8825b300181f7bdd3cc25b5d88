@@ -1,0 +1,94 @@
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class StringAnagram {
+
+	// Complete the makeAnagram function below.
+	static int makeAnagram(String a, String b) {
+
+		Map<Character, Integer> mapa = new HashMap<>();
+		Map<Character, Integer> mapb = new HashMap<>();
+		char[] stringa = a.toCharArray();
+		char[] stringb = b.toCharArray();
+		int count = 0;
+
+		for (Character c : stringa) {
+			if (mapa.containsKey(c)) {
+				Integer value = mapa.get(c);
+				value++;
+				mapa.put(c, value);
+			} else {
+				mapa.put(c, 1);
+			}
+		}
+
+		for (Character d : stringb) {
+			if (mapb.containsKey(d)) {
+				Integer value = mapb.get(d);
+				value++;
+				mapb.put(d, value);
+			} else {
+				mapb.put(d, 1);
+
+			}
+		}
+
+		Set<Character> seta = mapa.keySet();
+		Set<Character> setb = mapb.keySet();
+
+		for (Character e : seta) {
+			if (!mapb.containsKey(e)) {
+				count += count;
+			} else {
+
+				if (mapa.get(e) - mapb.get(e) > 0) {
+					count = count + mapa.get(e) - mapb.get(e);
+				}
+				if (mapb.get(e) - mapa.get(e) > 0) {
+					count = count + mapb.get(e) - mapa.get(e);
+				}
+			}
+
+		}
+
+		for (Character t : setb) {
+			if (mapa.containsKey(t)) {
+				if (mapa.get(t) - mapb.get(t) > 0) {
+					count = count + mapa.get(t) - mapb.get(t);
+				}
+				if (mapb.get(t) - mapa.get(t) > 0) {
+					count = count + mapb.get(t) - mapa.get(t);
+				}
+			}
+
+		}
+
+		return count;
+	}
+
+	private static final Scanner scanner = new Scanner(System.in);
+
+	public static void main(String[] args) throws IOException {
+		// BufferedWriter bufferedWriter = new BufferedWriter(new
+		// FileWriter(System.getenv("OUTPUT_PATH")));
+
+		String a = scanner.nextLine();
+
+		String b = scanner.nextLine();
+
+		int res = makeAnagram(a, b);
+
+		/*
+		 * bufferedWriter.write(String.valueOf(res)); bufferedWriter.newLine();
+		 * 
+		 * bufferedWriter.close();
+		 */
+		scanner.close();
+	}
+}

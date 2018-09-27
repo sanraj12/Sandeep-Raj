@@ -1,0 +1,16 @@
+import java.awt.print.Printable;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
+
+public class SreamOf {
+
+	public static void main(String[] args) {
+		Stream<String> stream = Stream.of("hsghdaj", "jhhhd", "huihdih", "ryfqsdj");
+
+		Predicate<String> p = Predicate.isEqual("huihdih");
+
+		stream.filter(p).forEach(System.out::println);
+
+	}
+
+}

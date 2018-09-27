@@ -1,0 +1,19 @@
+import java.util.Arrays;
+
+public class StreamWithLambda {
+
+	public static void main(String[] args) {
+		
+		
+		
+		Person person = new Person();
+		person.setAge(12);
+		person.setAge(35);
+		person.setAge(55);
+	
+		List<Person> list = Arrays.asList(person);
+		
+		
+	}
+
+}
